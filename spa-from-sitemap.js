@@ -32,10 +32,15 @@ sitemap.fetch(sitemapUrl).then(({ sites }) => {
 
   routes.forEach(route => {
     console.log(distDir + route + "index.html");
-    fx.mkdir(distDir + route, error => {
-      error && console.error(error);
+    try {
+      fx.mkdir(distDir + route, error => {
+        error && console.error(error);
+        copySync(distDir + route + "index.html", index, console.error);
+      });
+    } catch (err) {
+      // Folder Exists
       copySync(distDir + route + "index.html", index, console.error);
-    });
+    }
   });
 });
 
