@@ -3,12 +3,13 @@ const path = require("path");
 const Sitemapper = require("sitemapper");
 const sitemap = new Sitemapper();
 
-const sitemapUrl = process.argv[2];
-const distDir = process.argv[3];
+const args = Array.prototype.slice.call(process.argv || [])
+const distDir = args.pop();
+const sitemapUrl = args.pop();
 
 if (!sitemapUrl || !distDir) {
   console.log(`
-    Example Usage: npx spa-from-sitemap https://pietal.dev/sitemap.xml ./dist
+    Example Usage: npm run spa-from-sitemap https://pietal.dev/sitemap.xml ./dist
   `);
   process.exit(1);
 }
