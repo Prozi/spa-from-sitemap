@@ -1,11 +1,10 @@
 #!/usr/bin/node
 
 const fs = require("fs");
-const path = require("path");
 const Sitemapper = require("sitemapper");
 const sitemap = new Sitemapper();
 
-const args = Array.prototype.slice.call(process.argv || [])
+const args = Array.prototype.slice.call(process.argv || []);
 const distDir = args.pop();
 const sitemapUrl = args.pop();
 
@@ -27,19 +26,15 @@ sitemap.fetch(sitemapUrl).then(({ sites }) => {
     .map(url => url.replace(pageUrl, ""))
     .filter(route => route.startsWith("/"));
 
-  const index = fs.readFileSync(
-    path.resolve(...distDir.split("/"), "index.html"),
-    { encoding: "utf8" }
-  );
+  const index = fs.readFileSync(distDir + "/index.html", { encoding: "utf8" });
+  console.log({ index });
 
   routes.forEach(route => {
-    fs.mkdirSync(path.resolve(...distDir.split("/"), ...route.split("/")), {
-      recursive: true
+    console.log(distDir + route);
+    fs.mkdir(distDir + route, { recursive: true }, error => {
+      console.error(error);
+      copySync(distDir + route + "index.html", index, console.error);
     });
-    copySync(
-      path.resolve(...distDir.split("/"), ...route.split("/"), "index.html"),
-      index
-    );
   });
 });
 
