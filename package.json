@@ -1,14 +1,14 @@
 {
   "name": "spa-from-sitemap",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Auto make folders for routes and copy index.html - all from sitemap.xml",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "./spa-from-sitemap.js",
     "test": "echo \"No tests fail so its OK\""
   },
   "bin": {
-    "spa-from-sitemap": "./bin/spa-from-sitemap"
+    "spa-from-sitemap": "./spa-from-sitemap.js"
   },
   "repository": {
     "type": "git",
