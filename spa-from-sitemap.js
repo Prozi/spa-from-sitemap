@@ -27,12 +27,12 @@ sitemap.fetch(sitemapUrl).then(({ sites }) => {
     .filter(route => route.startsWith("/"));
 
   const index = fs.readFileSync(distDir + "/index.html", { encoding: "utf8" });
-  console.log({ index });
+  console.log(index);
 
   routes.forEach(route => {
-    console.log(distDir + route);
+    console.log(distDir + route + "index.html");
     fs.mkdir(distDir + route, { recursive: true }, error => {
-      console.error(error);
+      error && console.error(error);
       copySync(distDir + route + "index.html", index, console.error);
     });
   });
