@@ -33,17 +33,17 @@ sitemap.fetch(sitemapUrl).then(({ sites }) => {
   routes.forEach(route => {
     console.log(distDir + route + "index.html");
     try {
-      fx.mkdir(distDir + route, error => {
-        error && console.error(error);
-        copySync(distDir + route + "index.html", index, console.error);
-      });
+      fx.mkdirSync(distDir + route);
     } catch (err) {
-      // Folder Exists
+      console.error(Err)
+    } finally {
       copySync(distDir + route + "index.html", index, console.error);
     }
   });
 });
 
 function copySync(dest, data) {
-  fs.writeFileSync(dest, data);
+  process.nextTick(() => {
+    fs.writeFileSync(dest, data);
+  })
 }

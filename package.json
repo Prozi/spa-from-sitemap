@@ -1,6 +1,6 @@
 {
   "name": "spa-from-sitemap",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Auto make folders for routes and copy index.html - all from sitemap.xml",
   "main": "index.js",
   "scripts": {
