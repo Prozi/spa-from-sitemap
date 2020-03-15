@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const fs = require("fs");
-const fx = require('mkdir-recursive');
+const fx = require("mkdir-recursive");
 const Sitemapper = require("sitemapper");
 const sitemap = new Sitemapper();
 
@@ -28,16 +28,22 @@ sitemap.fetch(sitemapUrl).then(({ sites }) => {
     .filter(route => route.startsWith("/"));
 
   const index = fs.readFileSync(distDir + "/index.html", { encoding: "utf8" });
-  console.log(index);
 
   routes.forEach(route => {
+    const downDir = getDownDir(route);
     console.log(distDir + route + "index.html");
     try {
       fx.mkdirSync(distDir + route);
     } catch (err) {
-      console.error(Err)
+      console.error(Err);
     } finally {
-      copySync(distDir + route + "index.html", index, console.error);
+      copySync(
+        distDir + route + "index.html",
+        index
+          .replace(/src="/g, `src="${downDir}`)
+          .replace(`${downDir}https://`, "https://"),
+        console.error
+      );
     }
   });
 });
@@ -45,5 +51,18 @@ sitemap.fetch(sitemapUrl).then(({ sites }) => {
 function copySync(dest, data) {
   process.nextTick(() => {
     fs.writeFileSync(dest, data);
-  })
+  });
+}
+
+function getDownDir(route) {
+  return (
+    new Array(
+      route
+        .replace(/\//g, " ")
+        .trim()
+        .split(" ").length
+    )
+      .fill("..")
+      .join("/") + "/"
+  );
 }
