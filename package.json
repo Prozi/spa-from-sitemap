@@ -1,6 +1,6 @@
 {
   "name": "spa-from-sitemap",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Auto make folders for routes and copy index.html - all from sitemap.xml",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/Prozi/spa-from-sitemap#readme",
   "dependencies": {
+    "mkdir-recursive": "^0.4.0",
     "sitemapper": "^3.0.5"
   }
 }

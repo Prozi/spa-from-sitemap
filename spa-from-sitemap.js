@@ -1,6 +1,7 @@
 #!/usr/bin/node
 
 const fs = require("fs");
+const fx = require('mkdir-recursive');
 const Sitemapper = require("sitemapper");
 const sitemap = new Sitemapper();
 
@@ -31,7 +32,7 @@ sitemap.fetch(sitemapUrl).then(({ sites }) => {
 
   routes.forEach(route => {
     console.log(distDir + route + "index.html");
-    fs.mkdir(distDir + route, { recursive: true }, error => {
+    fx.mkdir(distDir + route, error => {
       error && console.error(error);
       copySync(distDir + route + "index.html", index, console.error);
     });

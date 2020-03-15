@@ -208,6 +208,11 @@ mime-types@^2.1.12, mime-types@~2.1.19:
   dependencies:
     mime-db "1.43.0"
 
+mkdir-recursive@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/mkdir-recursive/-/mkdir-recursive-0.4.0.tgz#7af3312e3e04987b1fba8fa873850f9e4d183cd1"
+  integrity sha512-gbTtiEu8P/GSMh1lAa0YYNr8XIfDzFgnWtetw3Hfz9nw6YXySHNYOZF/uUTgyp8GHvFnNw/EG7VhOkD6zfVb6A==
+
 oauth-sign@~0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
