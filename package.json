@@ -1,0 +1,31 @@
+{
+  "name": "spa-from-sitemap",
+  "version": "1.0.0",
+  "description": "Auto make folders for routes and copy index.html - all from sitemap.xml",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"No tests fail so its OK\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prozi/spa-from-sitemap.git"
+  },
+  "keywords": [
+    "spa",
+    "angular",
+    "react",
+    "sitemap",
+    "spa",
+    "single-page-app"
+  ],
+  "author": "Jacek Pietal <prozi85@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Prozi/spa-from-sitemap/issues"
+  },
+  "homepage": "https://github.com/Prozi/spa-from-sitemap#readme",
+  "dependencies": {
+    "sitemapper": "^3.0.5"
+  }
+}
