@@ -30,20 +30,13 @@ sitemap.fetch(sitemapUrl).then(({ sites }) => {
   const index = fs.readFileSync(distDir + "/index.html", { encoding: "utf8" });
 
   routes.forEach(route => {
-    const downDir = getDownDir(route);
     console.log(distDir + route + "index.html");
     try {
       fx.mkdirSync(distDir + route);
     } catch (err) {
       console.error(Err);
     } finally {
-      copySync(
-        distDir + route + "index.html",
-        index
-          .replace(/src="/g, `src="${downDir}`)
-          .replace(`${downDir}https://`, "https://"),
-        console.error
-      );
+      copySync(distDir + route + "index.html", index, console.error);
     }
   });
 });

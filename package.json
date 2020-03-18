@@ -1,8 +1,8 @@
 {
   "name": "spa-from-sitemap",
-  "version": "1.0.11",
+  "version": "1.1.0",
   "description": "Auto make folders for routes and copy index.html - all from sitemap.xml",
-  "main": "index.js",
+  "main": "spa-from-sitemap.js",
   "scripts": {
     "start": "./spa-from-sitemap.js",
     "test": "echo \"No tests fail so its OK\""
