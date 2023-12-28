@@ -30,6 +30,6 @@
   "homepage": "https://github.com/Prozi/spa-from-sitemap#readme",
   "dependencies": {
     "mkdir-recursive": "^0.4.0",
-    "sitemapper": "^3.0.5"
+    "sitemapper": "^3.2.8"
   }
 }
